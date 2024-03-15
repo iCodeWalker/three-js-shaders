@@ -56,3 +56,9 @@
    Three.js materials are limited.
    Our built shaders can be very simple and performant.
    We can add custom post-processing.
+
+7. First Shader With RawShaderMaterial
+   We can use a ShaderMaterial or a RawShaderMaterial
+
+   1. The ShaderMaterail will have some code automatically added to the shader codes.
+   2. The RawShaderMaterial will have nothing.
