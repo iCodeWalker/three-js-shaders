@@ -149,3 +149,24 @@
 
    11. Shaderific : https://shaderific.com/glsl.html
    12. Book of shaders glosary : https://thebookofshaders.com/glossary/
+
+9. Understanding Vertex Shader :
+   Main function:
+
+   1. Called automatically. The GPU will call this function.
+   2. Doesn't return anything (void).
+
+   3. Inside this main function we have a "gl_position" variable. This variable already exists, we just re-assign value to it.
+   4. It contain the position of the vertex on the screen. And at the end it will position the vertex at the right place in the screen or on the render.
+
+   5. "gl_position" will have a vec4 in it (according to our example).
+   6. The render is a 2D but still we have to provide vec4 to it. Because the coordinates are in fact in clip space. It's like positioning an object in a box. The "z" is for the depth(to know which part is in front of the other) and "w" is responsible for the perspective
+
+   7. We can move the shader using
+      gl_Position.x += 0.5;
+      gl_Position.y += 0.5;
+
+   8. position attribute :
+      Provide us the position attribute
+      Different between each vertex.
+      Contain x,y and z coordinate from the attribute.
