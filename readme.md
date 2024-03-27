@@ -170,3 +170,25 @@
       Provide us the position attribute
       Different between each vertex.
       Contain x,y and z coordinate from the attribute.
+
+   9. Matrices uniforms :
+      uniform mat4 projectionMatrix;
+      uniform mat4 viewMatrix;
+      uniform mat4 modelMatrix;
+
+      1. Each matrix will transform the 'position' untill we get the final clip space coordinates.
+      2. uniform because they are same for all the vertices.
+      3. Each matrix will do a part of the transformation.
+      4. To apply a matrix, we multiply it.
+      5. The matrix must have same size as the coordinares (mat4 for vec4)
+
+      modelMatrix
+      It will apply transformation to each of the vertices relative to the Mesh position, rotation and scale.
+
+      viewMatrix
+      It apply transformation to each of the vertices relative to the Camera position, rotation, field of view, near, far.
+
+      projectionMatrix
+      It transform the coordinates into the clip space coordinates.
+
+      \*\*\* Shorter version where the viewMatrix and the modelMatrix are combined into a modelViewMatrix \*\*\*
