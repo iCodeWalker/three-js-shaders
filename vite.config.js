@@ -13,4 +13,6 @@ export default {
     sourcemap: true,
   },
   plugins: [glsl()],
+  // javascript project gives error on using .glsl file as our project loads .glsl file as
+  // a javascript file, so to load glsl file as a string we need a plugin. so it can handle glsl file also.
 };
