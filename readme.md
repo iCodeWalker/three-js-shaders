@@ -1,21 +1,21 @@
 # Shaders
 
-1. Everthing showing up on the WebGL render is mage possible because of shaders.
+1. Everthing showing up on the WebGL render is made possible because of shaders.
 
-2. We have been using shaders by using three.js materials, these shaders are made by other developers for the community.
+2. We have been using shaders by using three.js materials, these shaders are made by other developers for the community. So that the development process can be faster.
 
 3. What is a Shader
 
    1. One of the main component of WebGL.
    2. For just simply creating a cube we have to write many line of codes. if we are using native WebGL.
-   3. Shader is basically a Program written in GLSL. Just like our javascript program, this program is sent to GPU for compile. In these programs we basicaly do two things. First, We position our geometry, that is we position the each vertex of the geometry and shader will put the geometry on the render. Second, it colorize each visible pixel of that geometry.
+   3. Shader is basically a Program written in GLSL. Just like our javascript program, this program is sent to GPU for compile. In these programs we basicaly do two things. First, We position our geometry, that is we position the each vertex of the geometry and shader will put the geometry in the scene on the render. Second, it colorize each visible pixel of that geometry.
 
-   For colorizing pixel isn't accurate because each point in the render dosen't necessarily match each pixel of the screen. So we are going to 'fragment'. Because somtimes the render can be drawn but not visible on screen and sometimes it can be very large render but squished to a small.
+   For colorizing pixel isn't accurate because each point in the render dosen't necessarily match each pixel of the screen. So we are going to use 'fragment'. Because somtimes the render can be drawn but not visible on screen and sometimes it can be very large render but squished to a small.
 
 4. We send a lot of data to the shaders
 
    1. Vertices coordinates.
-   2. Mesh transformation.
+   2. Mesh transformation. (if postion of x is 1, than every vertices needs to move or rotate)
    3. information about the camera.
    4. Colors.
    5. Textures.
@@ -48,9 +48,9 @@
 
       We can send uniform values to the fragments.
 
-      We cannot send attributes to fragments, But we can send data from vertex shader to fragment shader these values that we send from vertex fragment to fragment is called varying.
+      We cannot send attributes to fragments, But we can send data from vertex shader to fragment shader these values that we send from vertex to fragment is called varying.
 
-      The values will be interpolated between the vertices.
+      The values will be interpolated between the vertices as we move away from vertexes.
 
 6. Why use shaders
    Three.js materials are limited.
