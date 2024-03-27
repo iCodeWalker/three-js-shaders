@@ -5,6 +5,12 @@ uniform mat4 modelMatrix;
 
 attribute vec3 position;
 
+// ########### Get custom attribute in vertex shader ############
+attribute float aRandom;
+
+// ########### varying ###########
+varying float vRandom;
+
 // ### Function ###
 float loremIpsum(float a, float b) {
     return a + b;
@@ -25,12 +31,15 @@ void main()
     // modelPosition.x += 1.0;
     // Now we can create a wave.
 
-    modelPosition.z += sin(modelPosition.x * 10.0) * 0.1;
-
+    // modelPosition.z += sin(modelPosition.x * 10.0) * 0.1;
+    modelPosition.z = aRandom * 0.1;
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectionPostion = projectionMatrix * viewPosition;
 
     gl_Position = projectionPostion;
+
+    // assign attribute value to varying
+    vRandom = aRandom;
 
 
     // #### Don't do it like this

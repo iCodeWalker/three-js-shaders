@@ -28,6 +28,19 @@ const textureLoader = new THREE.TextureLoader();
 // Geometry
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
 
+console.log(geometry.attributes.position, "position");
+
+// ############## Adding custom attributes ############
+
+const count = geometry.attributes.position.count;
+const randoms = new Float32Array(count);
+
+for (let i = 0; i < count; i++) {
+  randoms[i] = Math.random();
+}
+
+geometry.setAttribute("aRandom", new THREE.BufferAttribute(randoms, 1));
+
 // Material
 // Replace 'MeshBasicMaterial' with 'RawShaderMaterial'
 // const material = new THREE.RawShaderMaterial();

@@ -218,3 +218,14 @@
           vec4 (r,g,b,a)
 
           We can control transparency from here : need 'transparent' property to true if 'alpha' below 1.0
+
+   11. Attributes :
+
+   position is already sent and we can add our own attributes to BufferGeometry
+
+   12. Varying :
+
+   We have created a custom attribute and accessed it inside vertex shader, now we have to access this in fragment shader.
+
+   We are going to color the fragments with the help of 'aRandom' attribute, but we cannot use 'attributes' in the fragment shader.
+   We can use 'varying' to send data from the vertex shader to the fragment shader.
