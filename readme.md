@@ -62,3 +62,90 @@
 
    1. The ShaderMaterail will have some code automatically added to the shader codes.
    2. The RawShaderMaterial will have nothing.
+
+8. The shader language is called GLSL (OpenGL Shading language), it is close to C language.
+
+   1. cannot do logging(console.log()) or print in .glsl file
+   2. The indentation is not essential.
+   3. The 'semicolon' at the end of line is required.
+   4. Variables :
+
+      It is a typed language.
+      We have to specify a variable type and cannot assign any other type to that variable.
+
+      float firstVar = 0.012;
+      int secondVar = -2;
+
+   5. We can do mathematical operations. But can't mix float with int in operations.
+      We can convert the type and than do the operations
+
+      float a = 1.0;
+      int b = 3;
+      float c = a + float(b)
+
+   6. Vec2 :
+      Used to store 2 coordinates (x and y).
+      A little like Three.js Vector2
+
+      vec2 foo = vec2(1.0,2.0)
+
+      // Properties can be changed after
+      vec2 foo = vec2(0.0);
+      foo.x = 1.0;
+      foo.y = 2.0;
+
+      // Doing operations on vec2 will multiply both the x and y
+      vec2 foo = vec2(0.0);
+      foo += 2.0;
+
+   7. Vec3 :
+      Similar to vec2 but with 'z'
+      A little like Three.js Vector3.
+      Convenient for 3D coordinates.
+
+      vec3 foo = vec3(0.0);
+      vec3 bar = vec3(1.0,2.0,3.0);
+      bar.z = 4.0;
+
+      // We can use r,g and b (aliases)
+      // More adequat with colors
+
+      vec3 purpleColor = vec3(0.0);
+      purpleColor.r = 0.5;
+      purpleColor.b = 1.0;
+
+      // can be partially created from a vec2
+
+      vec2 foo = vec2(1.0, 2.0);
+      vec3 bar = vec3(foo, 3.0); or vec3(foo.x, foo.y, 3.0);
+
+      // vec3 can be partially used to create vec2
+      // called "swizzle"
+
+      vec3 foo = vec3(1.0,2.0,3.0);
+      vec2 bar = foo.xy
+
+   8. Vec4 :
+      Similar to vec3 but with a 'w'.
+      A little like Three.js Vector4.
+      a is an alias of w.
+
+      vec4 foo = vec4(1.0,2.0,3.0,4.0);
+      vec4 bar = vec4(foo.zw, vec2(5.0, 6.0));
+
+   9. Function :
+
+      A function must start with the type of value that will be returned.
+
+      float loremIpsum() {
+      float a = 1.0;
+      float b = 3.0;
+
+      return a+b;
+      }
+
+   10. Many built-in classic functions sin, cos, max, min, pow, exp, mod, clamp.
+       And many more functions like cross, dot, mix, step, smoothstep, length, distance, reflect, refract, normalise.
+
+   11. Shaderific : https://shaderific.com/glsl.html
+   12. Book of shaders glosary : https://thebookofshaders.com/glossary/

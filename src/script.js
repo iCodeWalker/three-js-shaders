@@ -37,7 +37,7 @@ const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
 // Common properties like wireframe, side, transparent or flatShading will still work.
 
 // ######## properties like map, alphaMap, opacity, color, etc won't work #########
-// ### we need to write these feature by ourself.
+// ### we need to write these feature by ourself in the shaders.
 
 const material = new THREE.RawShaderMaterial({
   vertexShader: testVertexShader,
