@@ -44,6 +44,8 @@ const material = new THREE.RawShaderMaterial({
   fragmentShader: testFragmentShader,
   // wireframe: true,
   side: THREE.DoubleSide,
+  // activate transparent here if we want to control alpha in shaders.
+  transparent: true,
 });
 
 // Mesh

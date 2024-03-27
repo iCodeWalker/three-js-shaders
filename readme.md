@@ -192,3 +192,29 @@
       It transform the coordinates into the clip space coordinates.
 
       \*\*\* Shorter version where the viewMatrix and the modelMatrix are combined into a modelViewMatrix \*\*\*
+
+   10. Understanding Fragment Shader :
+       Main function :
+
+       1. Called automatically. The GPU will call this function.
+       2. Doesn't return anything (void).
+
+       3. Precision :
+          It lets us decide how precise can a float be
+          highp, mediump, lowp
+          It is mandatory mandatory
+
+          highp can have performance hit and might not work on some devices.
+          lowp can create bugs by the lack of precision.
+          We can commonly use mediump.
+
+       \*\*\* Automatically handled when using ShaderMaterial \*\*\*
+
+       4. gl_FragColor :
+
+          Already exists.
+          We need to re-assign it.
+          It contains the color of the fragment.
+          vec4 (r,g,b,a)
+
+          We can control transparency from here : need 'transparent' property to true if 'alpha' below 1.0
