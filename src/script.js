@@ -21,6 +21,8 @@ const scene = new THREE.Scene();
  * Textures
  */
 const textureLoader = new THREE.TextureLoader();
+// ## load texture for flag
+const flagTexture = textureLoader.load("/textures/flag-french.jpg");
 
 /**
  * Test mesh
@@ -73,6 +75,9 @@ const material = new THREE.RawShaderMaterial({
 
     // ### Add uColor and use the Color class, and send it to the Fragment Shader
     uColor: { value: new THREE.Color("orange") },
+
+    // ## Add uTexture uniform and send the flag texture to fragment shader
+    uTexture: { value: flagTexture },
   },
 });
 

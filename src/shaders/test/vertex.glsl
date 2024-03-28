@@ -12,6 +12,15 @@ uniform float uTime;
 
 attribute vec3 position;
 
+// ####### retrieve the uv attribute value in the vertex shader
+attribute vec2 uv;
+
+// ####### send the uv attribute value to the fragment shader
+varying vec2 vUv;
+
+// ####### send the elevation variable value to the fragment shader, so we need one varying.
+varying float vElevation;
+
 // ########### Get custom attribute in vertex shader ############
 // attribute float aRandom;
 
@@ -39,9 +48,14 @@ void main()
     // Now we can create a wave.
 
     // modelPosition.z += sin(modelPosition.x * 10.0) * 0.1;
-    modelPosition.z += sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
-    modelPosition.z += sin(modelPosition.y * uFrequency.y - uTime) * 0.1;
+    // modelPosition.z += sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
+    // modelPosition.z += sin(modelPosition.y * uFrequency.y - uTime) * 0.1;
 
+    // --->> Store the wind elevation in the variable as we need to send it to the Fragment shader for color variation
+    float elevation = sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
+    elevation += sin(modelPosition.y * uFrequency.y - uTime) * 0.1;
+
+    modelPosition.z += elevation;
     // ########### As it is a Mesh we can still change it's position, rotation and scale
     // modelPosition.y *= 0.5;
 
@@ -51,6 +65,12 @@ void main()
     vec4 projectionPostion = projectionMatrix * viewPosition;
 
     gl_Position = projectionPostion;
+
+    // assign uv attribute value to varying uUV
+    vUv = uv;
+
+    // update the vElevation varying
+    vElevation = elevation;
 
     // assign attribute value to varying
     // vRandom = aRandom;

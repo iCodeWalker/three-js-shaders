@@ -238,3 +238,15 @@
    Can be used in both vertex and fragment shaders.
 
    14. Do not use Date.now() for uTime because the number is too big for the shader.
+
+   15. Using Texture :
+
+   'sampler2D' is the type for textures.
+
+   We have to took the pixel color from the texture and than apply it in the fragment shader,
+
+   To do this we have to use texture2D() function.
+   The first parameter is the texture
+   The second parameter are the coordinates of from where to pick the color from the texture.
+
+   Adding color variations : Adding more brightness when the vertices are high (close to the camera) and less brightness when the vertices are in depth (away from the camera). In this way we can mimic the shadow.
