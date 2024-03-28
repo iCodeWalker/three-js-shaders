@@ -67,6 +67,12 @@ const material = new THREE.RawShaderMaterial({
     // uFrequency: { value: 10 },
     // For having waves in both x and y direction we use vector2
     uFrequency: { value: new THREE.Vector2(10, 5) },
+
+    //### Adding uTime uniform for having animation affect of flag in wind.
+    uTime: { value: 0 },
+
+    // ### Add uColor and use the Color class, and send it to the Fragment Shader
+    uColor: { value: new THREE.Color("orange") },
   },
 });
 
@@ -87,6 +93,9 @@ gui
 
 // Mesh
 const mesh = new THREE.Mesh(geometry, material);
+
+// Scale up
+mesh.scale.y = 2 / 3;
 scene.add(mesh);
 
 /**
@@ -144,6 +153,10 @@ const clock = new THREE.Clock();
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
+
+  // update the uTime uniform in the tick function with already calculated elapsedTime
+  // Update material
+  material.uniforms.uTime.value = elapsedTime;
 
   // Update controls
   controls.update();

@@ -7,6 +7,9 @@ uniform mat4 modelMatrix;
 // uniform float uFrequency;
 uniform vec2 uFrequency;
 
+// ####### retrieve the uniform value in the vertex shader
+uniform float uTime;
+
 attribute vec3 position;
 
 // ########### Get custom attribute in vertex shader ############
@@ -36,8 +39,11 @@ void main()
     // Now we can create a wave.
 
     // modelPosition.z += sin(modelPosition.x * 10.0) * 0.1;
-    modelPosition.z += sin(modelPosition.x * uFrequency.x) * 0.1;
-    modelPosition.z += sin(modelPosition.y * uFrequency.y) * 0.1;
+    modelPosition.z += sin(modelPosition.x * uFrequency.x - uTime) * 0.1;
+    modelPosition.z += sin(modelPosition.y * uFrequency.y - uTime) * 0.1;
+
+    // ########### As it is a Mesh we can still change it's position, rotation and scale
+    // modelPosition.y *= 0.5;
 
 
     // modelPosition.z = aRandom * 0.1;

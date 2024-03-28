@@ -236,3 +236,5 @@
    Usefull when we want to have same shader but with different results.
    Animate the values.
    Can be used in both vertex and fragment shaders.
+
+   14. Do not use Date.now() for uTime because the number is too big for the shader.
