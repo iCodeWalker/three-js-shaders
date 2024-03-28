@@ -58,8 +58,32 @@ const material = new THREE.RawShaderMaterial({
   // wireframe: true,
   side: THREE.DoubleSide,
   // activate transparent here if we want to control alpha in shaders.
-  transparent: true,
+  // transparent: true,
+
+  // ############# Uniforms ############
+  // We can add uniforms to the material with the uniforms property
+
+  uniforms: {
+    // uFrequency: { value: 10 },
+    // For having waves in both x and y direction we use vector2
+    uFrequency: { value: new THREE.Vector2(10, 5) },
+  },
 });
+
+// Adding waves control to GUI
+
+gui
+  .add(material.uniforms.uFrequency.value, "x")
+  .min(0)
+  .max(20)
+  .step(0.01)
+  .name("frequency X");
+gui
+  .add(material.uniforms.uFrequency.value, "y")
+  .min(0)
+  .max(20)
+  .step(0.01)
+  .name("frequency Y");
 
 // Mesh
 const mesh = new THREE.Mesh(geometry, material);

@@ -229,3 +229,10 @@
 
    We are going to color the fragments with the help of 'aRandom' attribute, but we cannot use 'attributes' in the fragment shader.
    We can use 'varying' to send data from the vertex shader to the fragment shader.
+
+   13. Uniforms :
+
+   Have same values for every vertex and fragments.
+   Usefull when we want to have same shader but with different results.
+   Animate the values.
+   Can be used in both vertex and fragment shaders.

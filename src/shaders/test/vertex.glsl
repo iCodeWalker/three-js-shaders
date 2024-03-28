@@ -3,13 +3,17 @@ uniform mat4 viewMatrix;
 uniform mat4 modelMatrix;
 // uniform mat4 modelViewMatrix
 
+// ####### retrieve the value in the vertex shader and use it for the waves frequency ########
+// uniform float uFrequency;
+uniform vec2 uFrequency;
+
 attribute vec3 position;
 
 // ########### Get custom attribute in vertex shader ############
-attribute float aRandom;
+// attribute float aRandom;
 
 // ########### varying ###########
-varying float vRandom;
+// varying float vRandom;
 
 // ### Function ###
 float loremIpsum(float a, float b) {
@@ -32,14 +36,18 @@ void main()
     // Now we can create a wave.
 
     // modelPosition.z += sin(modelPosition.x * 10.0) * 0.1;
-    modelPosition.z = aRandom * 0.1;
+    modelPosition.z += sin(modelPosition.x * uFrequency.x) * 0.1;
+    modelPosition.z += sin(modelPosition.y * uFrequency.y) * 0.1;
+
+
+    // modelPosition.z = aRandom * 0.1;
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectionPostion = projectionMatrix * viewPosition;
 
     gl_Position = projectionPostion;
 
     // assign attribute value to varying
-    vRandom = aRandom;
+    // vRandom = aRandom;
 
 
     // #### Don't do it like this
